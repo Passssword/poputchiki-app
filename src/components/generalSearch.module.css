@@ -1,0 +1,40 @@
+.search_wrapper{
+    display: flex;
+    margin-top: 200px;
+    margin-bottom: 150px;
+    padding: 5px;
+    width: 70%;
+    background: rgba(79,108,119,0.3); /* Прозрачность фона */
+    border-radius: 10px;
+  }
+  .test{position: relative;}
+.select_wrapper{flex-grow: 1; margin-right: 3px;}
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("https://netology-code.github.io/html-2-homeworks/form-elements/city-select/img/select-arrows.svg");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  
+  padding-left: 10px;
+  padding-right: 25px;
+  
+  margin: 0;
+  
+  border: 1px solid #cbd1d4;
+  background-color: #f9f9f9;
+  
+  font-size: 18px;
+  font-family: "Forum",sans-serif;
+  color: #333333;
+}
+
+.select:focus {
+  outline: 2px solid #0f8fee;
+/*   outline-offset: 4px; */
+}

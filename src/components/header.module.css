@@ -1,0 +1,49 @@
+.header{
+    position: relative;
+    background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%), url(https://kalix.club/uploads/posts/2022-12/1671661113_kalix-club-p-fon-dlya-prezentatsii-gorod-krasivo-70.jpg);
+    background-size: cover;
+    width: 100%;
+    min-height: 200px;
+  }
+
+
+  /*----------------------------*/
+/*Menu*/
+
+.menu_wrapper{
+  /* display: flex; */
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  padding: 0px 15px;
+  background: rgba(79,108,119,0.3); /* Прозрачность фона */
+  border-radius: 0px 0px 0px 10px;
+  }
+  .menuWrapper a {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 5px 10px;
+    font: /*italic*/ bold 130% serif;
+    color: var(--color5);
+    transition: all .4s linear;
+  }
+  .menuWrapper a:hover {
+    background: var(--color4);
+    color: var(--color1);
+  }
+  a.activeLink {
+    background: var(--color5);
+    color: var(--color7);
+  }
+  .menuList {
+    display: flex;
+    padding: 5px;
+  }
+  .menuList li {
+    list-style: none;
+    margin-left: 5px;
+  }
+  .menuList li:first-child {
+    margin-left: 0px;
+  }

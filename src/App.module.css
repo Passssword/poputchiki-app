@@ -1,0 +1,120 @@
+*, *:before, *:after{
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Forum";
+  font-size: 18px;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+/*  Шрифты */
+@font-face {
+	font-family: "Forum";
+	src: url('./source/Forum.ttf');
+}
+:root {
+  --color1: #9EABB3; /* */
+  --color2: #F6E8DA; /* */
+  --color3: #A7C4D4; /* */
+  --color4: #EAEEEF; /* */
+  --color5: #4F6C77; /**/
+  --color6: #FFFFFF;
+  --color7: #2ecc71;
+  --color8: #27ae60;
+  --clrBtnDelete: #CD5C5C;
+  --clrBtnDeleteHover: #E9967A;
+}
+.header_img{width: 1000px}
+
+body {
+  background: var(--color1);
+}
+
+.desktop {
+  display: flex;
+  flex-direction: column;
+  background: var(--color6);
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 2px solid var(--color6);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/*----Field's----------*/
+/* Удалим margin в Firefox и Safari */
+input[type="text"] {
+  font-family: inherit; /* 1 */
+  font-size: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  margin: 0; /* 2 */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea {
+  width: 90%;
+  max-width: 500px;
+  line-height: 30px;
+  font-family: 'Forum', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  margin:1em 2em;
+  border: 1px solid #cbd1d4;
+  background-color: #f9f9f9;
+  outline:none;
+  padding-left:10px;
+}
+input[type="button"] {
+  min-height:30px;
+  font-family: 'Forum', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  border-radius:5px;
+  padding: 5px 10px;
+  background: var(--color3);
+}
+input[type="button"]:hover {
+  background: var(--color2);
+}
+/* -------------------- */
+
+
+
+
+
+
+/* -------------------- */
+
+
+/* Colors */
+.color_bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #F1F6F8;
+  display: grid;
+  width: 280px;
+  padding: 10px;
+  background: #2D2F31;
+  grid-template-columns: repeat(10, 1fr);
+}
+.color_bar > div {
+  border-radius: 15px;
+  margin: 0 2px;
+  padding: 10px;
+}
+.color1 {background: var(--color1);}
+.color2 {background: var(--color2);}
+.color3 {background: var(--color3);}
+.color4 {background: var(--color4);}
+.color5 {background: var(--color5);}
+.color6 {background: var(--color6);}
+.color7 {background: var(--color7);}
+.color8 {background: var(--color8);}
+.color9 {background: var(--color9);}
+
+/*---------------------------*/

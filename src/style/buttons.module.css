@@ -1,0 +1,63 @@
+
+.btn {
+	border: none;
+  border-radius: 5px;
+/* 	font-family: 'Lato'; */
+/* 	font-size: inherit; */
+/* 	color: inherit; */
+/* 	background: none; */
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 15px;
+	cursor: pointer;
+	padding: 10px 15px;
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  
+  background: var(--color7);
+	color: var(--color6);
+}
+
+.btn:hover {
+	background: var(--color8);
+}
+
+.btn:active {
+	background: var(--color8);
+	top: 2px;
+}
+
+.btnDelete {
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	outline: none;
+    -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    background: var(--clrBtnDelete);
+	color: var(--color6);
+}
+.btnDelete:hover {
+	background: var(--clrBtnDeleteHover);
+}
+
+.btnDelete:active {
+	background: var(--color8);
+	top: 2px;
+}
