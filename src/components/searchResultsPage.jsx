@@ -2,23 +2,38 @@ import React from 'react';
 import style from './searchResultsPage.module.css'
 import { usersAPI } from '../api/axiosAPI.js'
 import { connect } from "react-redux";
+import { renderAdvertsAC } from "../redux/reducerSearchResults.js";
 
-function searchResultsPage () {
+function fillAdvertsFields (data) {
+  return data.map( elem => {
+    return (
+      <tr>
+        <td>{elem.startPoint}</td>
+        <td>{elem.endPoint}</td>
+        <td>{elem.dateCreate}</td>
+        <td>{elem.auto}</td>
+      </tr>
+    )
+  })
+}
+function SearchResultsPage (props) {
     return(
           <div className={style.search_results_wrapper}>
             <div className={style.search_filters_wrapper}>Block search filters</div>
             <table className={style.search_results_table}>
-              <tr><th>Место отправления</th><th>Место назначения</th><th>Дата</th><th>Автомобиль</th></tr>
-              <tr><td>Stephen C. Cox</td><td>$300</td><td>$50</td><td>Bob</td></tr>
-              <tr><td>Josephin Tan</td><td>$150</td><td>-</td><td>Annie</td></tr>
-              <tr><td>Joyce Ming</td><td>$200</td><td>$35</td><td>Andy</td></tr>
-              <tr><td>James A. Pentel</td><td>$175</td><td>$25</td><td>Annie</td></tr>
+              <tr>
+                <th>Место отправления</th>
+                <th>Место назначения</th>
+                <th>Дата</th>
+                <th>Автомобиль</th>
+              </tr>
+              {fillAdvertsFields(props.Adverts)}
             </table>
           </div>
     );
 }
 
-export default searchResultsPage;
+// export default searchResultsPage;
 
 
 /* 
@@ -30,23 +45,31 @@ class SearchResultsPageAPI extends React.Component {
   componentDidMount () {
     usersAPI.getAdverts()
             .then(data=>{
-                // this.props.renderLocations(data)
+              console.log('SearchResultsPageAPI --->')
+              console.log(data)
+              this.props.renderAdverts(data)
             })
   }
   render () {
-    return ( <searchResultsPage /> )
+    return ( <SearchResultsPage
+                Adverts={this.props.searchResultsState.Adverts}
+                /> )
   }
 }
 
 let mapStateToProps = ( state ) => {
   return (
     {
-      // LocationsState: state.locationsState,
+      searchResultsState: state.searchResultsState,
     });
 };
 let mapDispatchToProps = ( dispatch ) => {
   return (
     {
-      // renderLocations: (data) => {dispatch( renderLocationsAC(data) )}
+      renderAdverts: (data) => {dispatch( renderAdvertsAC(data) )}
     });
 };
+
+const SearchResultsContener = connect(mapStateToProps, mapDispatchToProps)(SearchResultsPageAPI);
+
+export default SearchResultsContener;
