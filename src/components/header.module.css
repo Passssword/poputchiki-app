@@ -1,6 +1,6 @@
 .header{
     position: relative;
-    background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%), url(https://kalix.club/uploads/posts/2022-12/1671661113_kalix-club-p-fon-dlya-prezentatsii-gorod-krasivo-70.jpg);
+    background-image: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%), url('../source/header.jpg');
     background-size: cover;
     width: 100%;
     min-height: 200px;
