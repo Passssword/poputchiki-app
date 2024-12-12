@@ -13,6 +13,7 @@ function Header () {
                         <li><NavLink to='/search-results' activeClassName={style.activeLink}>Search</NavLink></li>
                         <li><NavLink to='/create-advert' activeClassName={style.activeLink}>Create advert</NavLink></li>
                         <li><NavLink to='/admin-panel' activeClassName={style.activeLink}>Admin panel</NavLink></li>
+                        <li><NavLink to='/style-page' activeClassName={style.activeLink}>Style page</NavLink></li>
                     </ul>
                 </nav>
                 {/*===========*/}

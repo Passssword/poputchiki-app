@@ -24,7 +24,8 @@
     display: inline-block;
     border-radius: 25px;
     padding: 5px 10px;
-    font: /*italic*/ bold 130% serif;
+    font: 20px "Forum",sans-serif;
+    font-weight: 700;
     color: var(--color5);
     transition: all .4s linear;
   }

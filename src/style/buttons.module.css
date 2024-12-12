@@ -6,10 +6,9 @@
 /* 	font-size: inherit; */
 /* 	color: inherit; */
 /* 	background: none; */
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 300;
+  font: 15px 'Quicksand', sans-serif;
+  font-weight: 500;
   font-style: normal;
-  font-size: 15px;
 	cursor: pointer;
 	padding: 10px 15px;
 	display: inline-block;
