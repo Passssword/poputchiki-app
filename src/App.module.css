@@ -22,8 +22,6 @@
   --color6: #FFFFFF;
   --color7: #2ecc71;
   --color8: #27ae60;
-  --clrBtnDelete: #CD5C5C;
-  --clrBtnDeleteHover: #E9967A;
 }
 .header_img{width: 1000px}
 
@@ -62,7 +60,7 @@ textarea {
   font-family: 'Forum', sans-serif;
   font-style: normal;
   font-size: 18px;
-  margin:1em 2em;
+  margin: 10px 1em;
   border: 1px solid #cbd1d4;
   background-color: #f9f9f9;
   outline:none;

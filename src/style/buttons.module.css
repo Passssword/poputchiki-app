@@ -1,3 +1,11 @@
+:root {
+	--clrBtnLogin: #7daee6;
+	--clrBtnLoginHover: #557faf;
+	--clrBtnLoginActive: #c7dcf5;
+	--clrBtnDelete: #CD5C5C;
+	--clrBtnDeleteHover: #E9967A;
+  }
+
 
 .btn {
 	border: none;
@@ -58,5 +66,32 @@
 
 .btnDelete:active {
 	background: var(--color8);
+	top: 2px;
+}
+.btnLogin {
+    border: none;
+    border-radius: 5px;
+    padding: 7px 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	outline: none;
+    -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+    background: var(--clrBtnLogin);
+	color: var(--color6);
+}
+.btnLogin:hover {
+	background: var(--clrBtnLoginHover);
+}
+
+.btnLogin:active {
+	background: var(--clrBtnLoginActive);
 	top: 2px;
 }

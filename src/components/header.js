@@ -1,10 +1,14 @@
 import style from './header.module.css'
 import { Routes, Route, NavLink, Outlet, } from "react-router-dom";
 import GenerelSearch from './generalSearch.jsx';
+import AuthBlock from './auth/auth.jsx';
 
 function Header () {
     return (
         <div className={style.header}>
+            <div className={style.auth_wrapper}>
+                <AuthBlock />
+            </div>
             <div className={style.menu_wrapper}>
                 {/*====Menu====*/}
                 <nav className={style.menuWrapper}>

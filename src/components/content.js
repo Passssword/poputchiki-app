@@ -4,6 +4,7 @@ import SearchResultsPage from './searchResultsPage.jsx';
 import CreateAdvertPage from './createAdvertPage.jsx';
 import StylePage from './stylePage.jsx';
 import AdminPanel from '../admin/admin.jsx';
+import AuthorizationPage from './auth/AuthorizationPage.jsx';
 
 function Content () {
     
@@ -14,6 +15,7 @@ function Content () {
             <Route path="/create-advert" element={<CreateAdvertPage />} />
             <Route path="/admin-panel" element={<AdminPanel />} />
             <Route path="/style-page" element={<StylePage />} />
+            <Route path="/auth" element={<AuthorizationPage />} />
         </Routes>
     </div>
 )}

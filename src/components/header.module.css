@@ -6,6 +6,15 @@
     min-height: 200px;
   }
 
+.auth_wrapper{
+  /* display: flex; */
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  padding: 5px 15px;
+  background: rgba(79,108,119,0.3); /* Прозрачность фона */
+  border-radius: 0px 0px 0px 10px;
+  }
 
   /*----------------------------*/
 /*Menu*/
@@ -14,10 +23,11 @@
   /* display: flex; */
   display: inline-block;
   position: absolute;
+  bottom: 0px;
   right: 0px;
   padding: 0px 15px;
   background: rgba(79,108,119,0.3); /* Прозрачность фона */
-  border-radius: 0px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px;
   }
   .menuWrapper a {
     text-decoration: none;
