@@ -95,3 +95,7 @@
 	background: var(--clrBtnLoginActive);
 	top: 2px;
 }
+
+.btnCreate {background: var(--clrBtnLogin);}
+.btnCreate:hover {background: var(--clrBtnLoginHover);}
+.btnCreate:active {background: var(--clrBtnLoginActive);}

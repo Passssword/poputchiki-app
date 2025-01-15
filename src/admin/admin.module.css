@@ -1,15 +1,26 @@
 .admin_page_wrapper {
-    display: flex;
-    flex-direction: column;
-    max-width:600px;
-    width: 90%;
-    background: var(--color1);
-  }
-
+  display: flex;
+  /* flex-direction: column; */
+}
+.adminNavWrapper {
+  margin: 10px;
+  padding: 15px;
+  width: 250px;
+  border-radius: 10px;
+  background: var(--color4);
+}
+.locations_wrapper {
+  margin: 30px 15px 0px 0px;
+  display: flex;
+}
+.adminCreateLocationFieldWrapper {
+  margin-top: 30px;
+  display: flex;
+  max-width:600px;
+}
 .adminLocationsTable {
   display: inline-block;
   vertical-align: top;
-  max-width: 100%;
   
   overflow-x: auto;
   
@@ -52,3 +63,6 @@
 .adminLocationsTable td {
   background: var(--color4);
 }
+
+
+button {margin: 0px 15px;}

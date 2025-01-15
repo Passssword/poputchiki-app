@@ -38,8 +38,6 @@
   padding-left: 10px;
   padding-right: 25px;
   
-  margin: 10px 1em;
-  
   border: 1px solid #cbd1d4;
   background-color: #f9f9f9;
   
@@ -50,6 +48,7 @@
 }
 
 .select:focus {
-  outline: 2px solid #0f8fee;
+  outline: none;
+  /* outline: 2px solid #0f8fee; */
   /* outline-offset: 4px; */
 }
