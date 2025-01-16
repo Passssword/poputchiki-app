@@ -7,7 +7,11 @@
   padding: 15px;
   width: 250px;
   border-radius: 10px;
-  background: var(--color4);
+  background: var(--color9);
+}
+.LocationImg {
+  width: 25px;
+  margin-right: 10px;
 }
 .locations_wrapper {
   margin: 30px 15px 0px 0px;
