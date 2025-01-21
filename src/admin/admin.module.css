@@ -69,4 +69,88 @@
 }
 
 
-button {margin: 0px 15px;}
+
+/*------------------------------*/
+/*------- Manage Users ---------*/
+/*------------------------------*/
+
+.manageUsersWrapper {
+  width: 100%;
+  /* background: var(--color9); */
+  padding: 30px;
+}
+.createUsersWrapper {
+  background: var(--color4);
+  padding: 10px;
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+}
+.listUsersWrapper {
+  margin-top: 20px;
+  padding: 10px;
+  background: var(--color4);
+  -webkit-box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);        
+  box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .45);
+}
+.registrationForm {width: 500px;}
+.registrationForm input {margin-bottom: 5px;}
+.textbox{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  border:rgba(0,0,0,.3) 2px solid;
+  box-sizing:border-box;
+  padding:10px;
+  margin-bottom:30px;
+}
+
+.textbox:focus{
+  outline:none;
+   border:rgba(24,149,215,1) 2px solid;
+   color:rgba(24,149,215,1);
+}
+.manageUsersListTable {
+  display: inline-block;
+  vertical-align: top;
+  
+  overflow-x: auto;
+  
+  white-space: nowrap;
+
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.manageUsersListTable tbody {
+  /* optional - enable iOS momentum scrolling */
+  -webkit-overflow-scrolling: touch;
+  
+  /* scrolling shadows */
+  background: radial-gradient(left, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+              radial-gradient(right, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+}
+/* gradient on the last cells to hide the right shadow */
+.manageUsersListTable td:last-child {
+  /* background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 20px 100%; */
+}
+
+.manageUsersListTable th {
+  font-size: 11px;
+  text-align: left;
+  text-transform: uppercase;
+  background: var(--color2);
+}
+
+.manageUsersListTable th,
+.manageUsersListTable td {
+  padding: 6px 12px;
+  border: 1px solid #d9d7ce;
+}
+.manageUsersListTable td {
+  background: var(--color6);
+}

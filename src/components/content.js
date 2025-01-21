@@ -7,6 +7,7 @@ import AdminPanel from '../admin/admin.jsx';
 import AuthorizationPage from './auth/AuthorizationPage.jsx';
 import CreateLocations from '../admin/createLocations.jsx';
 import ManageAdverts from '../admin/manageAdverts.jsx';
+import ManageUsers from '../admin/manageUsers.jsx';
 
 function Content () {
     
@@ -18,6 +19,7 @@ function Content () {
             <Route path="/admin-panel/*" element={<AdminPanel />}>
                 <Route path="manage-locations" element={<CreateLocations />} />
                 <Route path="manage-adverts" element={<ManageAdverts />} />
+                <Route path="manage-users" element={<ManageUsers />} />
             </Route>
             <Route path="/style-page" element={<StylePage />} />
             <Route path="/auth" element={<AuthorizationPage />} />

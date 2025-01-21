@@ -12,7 +12,7 @@ const AdminNavigation = () => {
             <img className={style.LocationImg} src={AdvertsImg} />
             <NavLink to="/admin-panel/manage-adverts">Объявления</NavLink><br />
             <img className={style.LocationImg} src={UsersImg} />
-            <NavLink to="/admin-panel">Пользователи</NavLink><br />
+            <NavLink to="/admin-panel/manage-users">Пользователи</NavLink><br />
         </div>
     )
 }
