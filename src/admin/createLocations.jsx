@@ -15,7 +15,7 @@ function postLocations (data) {
                 <td>{elem.town}</td>
                 <td>
                     <button className={styleButtons.btnDelete} onClick={ async () => {await deleteTown(elem.id)} }>DELETE</button>
-                    </td>
+                </td>
             </tr>)
 })
 }

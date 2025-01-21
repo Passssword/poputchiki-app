@@ -6,6 +6,9 @@ export const renderLocationsAC = (data) => {
 export const addLocationAC = (data) => {
     return { type: 'ADD-LOCATION', location: data }
 }
+// export const addUserAC = (data) => {
+//     return { type: 'ADD-USER', data: data }
+// }
 
 const _renderLocations = (data) => {
     console.log("Function _renderLocations --->")
@@ -37,6 +40,8 @@ const reducerAdmin = (state = initialState, action) => {
             stateCopy.Locations.push(action.location)
             // _addLocation(action.location, stateCopy)
             return stateCopy;
+        // case 'ADD-USER':
+        //     return stateCopy;
         default:
             return state;
     }

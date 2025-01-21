@@ -35,4 +35,9 @@ export const usersAPI = {
             // .then( response => { return(response.data); } )
 			);
 	},
+	postUser (data) {
+		return(
+			instance.post('admin/addUser', data, { withCredentials: false })
+				.then( response => { return(response.data); } )
+			)}
 }
