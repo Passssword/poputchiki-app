@@ -20,6 +20,11 @@ export const usersAPI = {
             .then(response => { return (response.data) })
 		);
 	},
+	getUsers () {
+		return( instance.get( 'admin/getUsers' ,{ withCredentials: false } )
+            .then(response => { return (response.data) })
+		);
+	},
     postLocation (location) {
 		return(instance.post('admin', location, { withCredentials: false } )
             .then( response => { return(response.data); } )

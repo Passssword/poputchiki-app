@@ -1,4 +1,3 @@
-import { usersAPI } from '../api/axiosAPI.js';
 
 export const renderLocationsAC = (data) => {
     return { type: 'RENDER-LOCATIONS', locations: data }
@@ -6,17 +5,21 @@ export const renderLocationsAC = (data) => {
 export const addLocationAC = (data) => {
     return { type: 'ADD-LOCATION', location: data }
 }
-// export const addUserAC = (data) => {
-//     return { type: 'ADD-USER', data: data }
-// }
+export const renderUsersAC = (data) => {
+    return { type: 'RENDER-USERS', users: data }
+}
+export const reRendererUsersAC = (data) => {
+    return { type: 'RERENDERER-USERS', }
+}
+export const addUserAC = (data) => {
+    return { type: 'ADD-USER', data: data }
+}
 
 const _renderLocations = (data) => {
     console.log("Function _renderLocations --->")
     console.log(data)
 }
-const _addLocation = (data, state) => {
-    return state;
-}
+
 let initialState = {
     Locations: [
         {id:1, town: "Холмск"},
@@ -24,6 +27,14 @@ let initialState = {
         {id:3, town: "Корсаков"},
         {id:4, town: "Невельск"},
         {id:5, town: "Долинск"},
+    ],
+    Users: [
+        {id:1, login: "Zara", password: "qwerty"},
+        {id:2, login: "Yandoo", password: "123456"},
+        {id:3, login: "Ultra", password: "Fin38cb22"},
+        {id:4, login: "Ivan", password: "looidfuy"},
+        {id:5, login: "hiroku", password: "zxd6"},
+        {id:6, login: "Demon666", password: "1234567890"},
     ]
 }
 
@@ -40,13 +51,16 @@ const reducerAdmin = (state = initialState, action) => {
             stateCopy.Locations.push(action.location)
             // _addLocation(action.location, stateCopy)
             return stateCopy;
-        // case 'ADD-USER':
-        //     return stateCopy;
+        case 'ADD-USER':
+            return stateCopy;
+        case 'RENDER-USERS':
+            stateCopy.Users = action.users
+            return stateCopy;
+        case 'RERENDERER-USERS':
+            return stateCopy;
         default:
             return state;
     }
-
-    return state;
 }
 
 export default reducerAdmin;
