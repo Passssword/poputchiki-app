@@ -5,16 +5,24 @@ import styleButtons from '../style/buttons.module.css'
 import { usersAPI } from '../api/axiosAPI.js'
 import { renderUsersAC, reRendererUsersAC } from "../redux/reducerAdmin.js";
 
+
+const deleteUser = (userID) => {
+    usersAPI.deleteUser(userID)
+        .then( response => { console.log("User was DELETED") } )
+}
 function RenderUsersTable (usersArray) {
     return usersArray.map( item => { return(
         <tr>
             <td>{item.id}</td>
             <td>{item.login}</td>
             <td>{item.password}</td>
-            <td>Buttons</td>
+            <td>
+            <button className={styleButtons.btnDelete} onClick={ async () => {await deleteUser(item.id)} }>DELETE</button>
+            </td>
         </tr>)
         })
 }
+
 const ManageUsers = (props) => {
 
     let fieldLogin = React.createRef();
