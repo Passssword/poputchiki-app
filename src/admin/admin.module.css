@@ -7,7 +7,7 @@
   padding: 15px;
   width: 250px;
   border-radius: 10px;
-  background: var(--color9);
+  background: rgba(79,108,119,0.3);
 }
 .LocationImg {
   width: 25px;

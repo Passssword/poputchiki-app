@@ -1,4 +1,5 @@
 import style from './admin.module.css'
+import linksStyle from '../style/links.module.css';
 import { NavLink } from "react-router-dom";
 import Loca from './location.svg'
 import UsersImg from './users.svg'
@@ -8,11 +9,11 @@ const AdminNavigation = () => {
     return(
         <div className={style.adminNavWrapper}>
             <img className={style.LocationImg} src={Loca} />
-            <NavLink to="/admin-panel/manage-locations">Локации</NavLink><br />
+            <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-locations">Локации</NavLink><br />
             <img className={style.LocationImg} src={AdvertsImg} />
-            <NavLink to="/admin-panel/manage-adverts">Объявления</NavLink><br />
+            <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-adverts">Объявления</NavLink><br />
             <img className={style.LocationImg} src={UsersImg} />
-            <NavLink to="/admin-panel/manage-users">Пользователи</NavLink><br />
+            <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-users">Пользователи</NavLink><br />
         </div>
     )
 }

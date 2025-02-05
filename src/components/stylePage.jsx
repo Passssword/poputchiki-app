@@ -1,4 +1,6 @@
 import style from './stylePage.module.css'
+import linksStyle from '../style/links.module.css';
+import { NavLink } from "react-router-dom";
 function StylePage () {
     
     return(
@@ -34,6 +36,9 @@ function StylePage () {
 
             <hr />
             <h3>Цветовая схема</h3>
+            <hr />
+            <h3>Стилизация ссылок</h3>
+            <NavLink className={linksStyle.link}>link</NavLink>
         </div>
         
     </div>
