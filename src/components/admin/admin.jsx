@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Routes, Route, useRoutes,Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import style from './admin.module.css'
 import AdminNavigation from './adminNavigation.jsx';
 

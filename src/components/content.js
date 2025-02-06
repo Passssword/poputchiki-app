@@ -1,13 +1,13 @@
 import style from './content.module.css'
-import { Routes, Route, useRoutes,Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SearchResultsPage from './searchResultsPage.jsx';
 import CreateAdvertPage from './createAdvertPage.jsx';
 import StylePage from './stylePage.jsx';
-import AdminPanel from '../admin/admin.jsx';
+import AdminPanel from './admin/admin.jsx';
 import AuthorizationPage from './auth/AuthorizationPage.jsx';
-import CreateLocations from '../admin/createLocations.jsx';
-import ManageAdverts from '../admin/manageAdverts.jsx';
-import ManageUsers from '../admin/manageUsers.jsx';
+import CreateLocations from './admin/createLocations.jsx';
+import ManageAdverts from './admin/manageAdverts.jsx';
+import ManageUsers from './admin/manageUsers.jsx';
 
 function Content () {
     

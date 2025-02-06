@@ -1,5 +1,5 @@
 import style from './admin.module.css'
-import linksStyle from '../style/links.module.css';
+import linksStyle from '../../style/links.module.css';
 import { NavLink } from "react-router-dom";
 import Loca from './location.svg'
 import UsersImg from './users.svg'

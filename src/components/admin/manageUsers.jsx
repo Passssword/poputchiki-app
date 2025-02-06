@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import style from './admin.module.css'
-import styleButtons from '../style/buttons.module.css'
-import { usersAPI } from '../api/axiosAPI.js'
-import { renderUsersAC, reRendererUsersAC } from "../redux/reducerAdmin.js";
+import styleButtons from '../../style/buttons.module.css'
+import { usersAPI } from '../../api/axiosAPI.js'
+import { renderUsersAC, reRendererUsersAC } from "../../redux/reducerAdmin.js";
 
 
 const deleteUser = (userID) => {
