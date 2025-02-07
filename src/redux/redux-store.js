@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk'
 import reducerAdmin from './reducerAdmin.js';
 import reducerGeneralSearch from './reducerGeneralSearch.js'

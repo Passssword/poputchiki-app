@@ -1,4 +1,7 @@
 
+import { usersAPI } from '../api/axiosAPI.js'
+
+
 export const renderLocationsAC = (data) => {
     return { type: 'RENDER-LOCATIONS', locations: data }
 }
@@ -52,6 +55,7 @@ const reducerAdmin = (state = initialState, action) => {
             // _addLocation(action.location, stateCopy)
             return stateCopy;
         case 'ADD-USER':
+            stateCopy.Users.push(action.data.userDataObject);
             return stateCopy;
         case 'RENDER-USERS':
             stateCopy.Users = action.users
@@ -63,4 +67,15 @@ const reducerAdmin = (state = initialState, action) => {
     }
 }
 
+export const addUserThunkCreator = async (userDataObject) => {
+    debugger
+    return(dispatch) => {
+        usersAPI.postUser(userDataObject)
+            .then( data => {
+                if( data.status === 200 ) {
+                    dispatch( addUserAC(userDataObject) );
+                }
+            } )
+    }
+};
 export default reducerAdmin;

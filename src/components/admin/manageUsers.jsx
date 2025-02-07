@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import style from './admin.module.css'
 import styleButtons from '../../style/buttons.module.css'
 import { usersAPI } from '../../api/axiosAPI.js'
-import { renderUsersAC, reRendererUsersAC } from "../../redux/reducerAdmin.js";
+import { renderUsersAC, reRendererUsersAC, addUserThunkCreator } from "../../redux/reducerAdmin.js";
 
 
 const deleteUser = (userID) => {
@@ -28,19 +28,20 @@ const ManageUsers = (props) => {
     let fieldLogin = React.createRef();
     let fieldPassword = React.createRef();
 
-    function CreateUser () {
+    async function CreateUser () {
         let userFieldsAgrigationObject = {
             login: fieldLogin.current.value,
             password: fieldPassword.current.value
         }
-        usersAPI.postUser(userFieldsAgrigationObject)
-            .then( data => {
-                if( data.status === 200 ) {
-                    fieldLogin.current.value = '';
-                    fieldPassword.current.value = '';
-                    props.ReRendererUsers()
-                }
-            } )
+        await props.AddUser(userFieldsAgrigationObject)
+        // usersAPI.postUser(userFieldsAgrigationObject)
+        //     .then( data => {
+        //         if( data.status === 200 ) {
+        //             fieldLogin.current.value = '';
+        //             fieldPassword.current.value = '';
+        //             props.ReRendererUsers()
+        //         }
+        //     } )
     }
     return(
         <div className={style.manageUsersWrapper}>
@@ -81,6 +82,7 @@ class ManageUsersAPI extends React.Component {
                         UsersState={this.props.adminUsersPage}
                         RenderUsers={this.props.renderUsers}
                         ReRendererUsers={this.props.reRendererUsers}
+                        AddUser={this.props.addUserThunkCreator}
                         />
     }
 }
@@ -90,7 +92,8 @@ let mapStateToProps = (state) => { return(
 let mapDispatchToProps = (dispatch) => { return(
     {
         renderUsers: (data) => { dispatch( renderUsersAC(data) ) },
-        reRendererUsers: () => { dispatch( reRendererUsersAC() ) },
+        reRendererUsers: (data) => { dispatch( reRendererUsersAC(data) ) },
+        addUserThunkCreator: (userData) => (dispatch (addUserThunkCreator(userData)) ),
     }
 ) }
 const ManageUsersContaner = connect(mapStateToProps,mapDispatchToProps)(ManageUsersAPI)
