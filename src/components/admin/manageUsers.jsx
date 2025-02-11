@@ -33,7 +33,7 @@ const ManageUsers = (props) => {
             login: fieldLogin.current.value,
             password: fieldPassword.current.value
         }
-        await props.AddUser(userFieldsAgrigationObject)
+        props.AddUser(userFieldsAgrigationObject)
         // usersAPI.postUser(userFieldsAgrigationObject)
         //     .then( data => {
         //         if( data.status === 200 ) {

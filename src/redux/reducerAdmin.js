@@ -67,8 +67,7 @@ const reducerAdmin = (state = initialState, action) => {
     }
 }
 
-export const addUserThunkCreator = async (userDataObject) => {
-    debugger
+export const addUserThunkCreator = (userDataObject) => {
     return(dispatch) => {
         usersAPI.postUser(userDataObject)
             .then( data => {

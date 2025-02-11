@@ -41,9 +41,8 @@ export const usersAPI = {
 			);
 	},
 	postUser (data) {
-		return(
-			instance.post('admin/addUser', data, { withCredentials: false })
-				.then( response => { return(response.data); } )
+		return( instance.post('admin/addUser', data, { withCredentials: false }).then( response => { 
+				return(response.data); } )
 			)},
 	deleteUser (userId) {
 		return ( instance.delete('users/'+userId, { withCredentials: false })

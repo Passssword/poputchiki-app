@@ -13,18 +13,18 @@ let reducers = combineReducers({
 	searchResultsState: reducerSearchResults,
 });
 
-// const store = createStore( reducers, applyMiddleware(thunk) );
+const store = createStore( reducers, applyMiddleware(thunk) );
 
-const middleware = getDefaultMiddleware({
-	immutableCheck: false,
-	serializableCheck: false,
-	thunk: true,
-  });
+// const middleware = getDefaultMiddleware({
+// 	immutableCheck: false,
+// 	serializableCheck: false,
+// 	thunk: true,
+//   });
 
-const store = configureStore({
-	reducer: { reducers },
-	middleware,
-	devTools: process.env.NODE_ENV !== 'production',
-});
+// const store = configureStore({
+// 	reducer: { reducers },
+// 	middleware,
+// 	devTools: process.env.NODE_ENV !== 'production',
+// });
 
 export default store;
