@@ -22,6 +22,10 @@ const _renderLocations = (data) => {
     console.log("Function _renderLocations --->")
     console.log(data)
 }
+const _addUserToTable = (state, newUser) => {
+    state.Users.push(newUser)
+    return state
+}
 
 let initialState = {
     Locations: [
@@ -55,8 +59,8 @@ const reducerAdmin = (state = initialState, action) => {
             // _addLocation(action.location, stateCopy)
             return stateCopy;
         case 'ADD-USER':
-            stateCopy.Users.push(action.data.userDataObject);
-            return stateCopy;
+            stateCopy.Users = [...state.Users]
+            return _addUserToTable(stateCopy, action.data);
         case 'RENDER-USERS':
             stateCopy.Users = action.users
             return stateCopy;
@@ -72,7 +76,12 @@ export const addUserThunkCreator = (userDataObject) => {
         usersAPI.postUser(userDataObject)
             .then( data => {
                 if( data.status === 200 ) {
-                    dispatch( addUserAC(userDataObject) );
+                    let newUserObject = {
+                        id: data.userId,
+                        login: userDataObject.login,
+                        password: userDataObject.password
+                    }
+                    dispatch( addUserAC(newUserObject) );
                 }
             } )
     }
