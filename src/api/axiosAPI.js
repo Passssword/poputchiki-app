@@ -2,10 +2,10 @@ import axios from "axios"
 
 const instance = axios.create({
 	withCredentials: true,
-    // headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     'Access-Control-Allow-Origin': '*'
-    //   },
+    headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      },
 	baseURL: 'http://localhost:34587/'
 })
 
@@ -41,7 +41,9 @@ export const usersAPI = {
 			);
 	},
 	postUser (data) {
-		return( instance.post('admin/addUser', data, { withCredentials: false }).then( response => { 
+		return( instance.post('admin/addUser',
+			data,
+			{ withCredentials: false, headers: {'user-object': JSON.stringify(data)} }).then( response => { 
 				return(response.data); } )
 			)},
 	deleteUser (userId) {
