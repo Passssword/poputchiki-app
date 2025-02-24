@@ -43,7 +43,7 @@ export const usersAPI = {
 	postUser (data) {
 		return( instance.post('admin/addUser',
 			data,
-			{ withCredentials: false, headers: {'user-object': JSON.stringify(data)} }).then( response => { 
+			{ withCredentials: false, headers: {'user-object': btoa(JSON.stringify(data))} }).then( response => { 
 				return(response.data); } )
 			)},
 	deleteUser (userId) {
