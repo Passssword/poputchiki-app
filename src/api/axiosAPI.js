@@ -1,4 +1,5 @@
 import axios from "axios"
+import {setCookie} from '../service/cookieManager.js'
 
 const instance = axios.create({
 	withCredentials: true,
@@ -12,7 +13,10 @@ const instance = axios.create({
 export const usersAPI = {
 	getAdverts () {
 		return( instance.get( 'adverts' ,{ withCredentials: false } )
-            .then(response => { return (response.data) })
+            .then(response => {
+            	setCookie(response.headers['cookie'])
+            	return (response.data)
+            })
 		);
 	},
 	getLocations () {
