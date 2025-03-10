@@ -5,7 +5,8 @@ const instance = axios.create({
 	withCredentials: true,
     headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+		'session': document.cookie
       },
 	baseURL: 'http://localhost:34587/'
 })
