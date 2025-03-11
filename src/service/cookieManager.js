@@ -1,18 +1,22 @@
-function cookieParser (cookieStr) {
-	let cook = cookieStr.split('=')
-	const cookieObj = {"_session_key":cook[1]}
-	// console.log(cook)
+function cookieParser (sessionKey, expiresDate) {
+	let key = sessionKey.split('=')
+    let date = new Date( Number(expiresDate) );
+    // console.log("expiresDate-->")
+    // console.log(`Miliseconds: ${expiresDate}`)
+    // console.log(`Date format: ${date}`)
+
+	const cookieObj = {
+        "_session_key": key[1],
+        "expires": date.toUTCString(),
+    }
 	return cookieObj;
 }
 
-export function setCookie (cookieStr) {
-	let cookie = cookieParser(cookieStr)
-	const date = new Date();
-    date.setTime(date.getTime() + (30*24*60*60*1000));
-
+export function setCookie (sessionKey, expiresDate) {
+	let cookie = cookieParser(sessionKey, expiresDate)
     const chunks = [
         `_session_key=${cookie._session_key}`,
-        `expires=${date.toUTCString()}`,
+        `expires=${cookie.expires}`,
         'path=/'
     ].join('; ');
 

@@ -15,7 +15,7 @@ export const usersAPI = {
 	getAdverts () {
 		return( instance.get( 'adverts' ,{ withCredentials: false } )
             .then(response => {
-            	setCookie(response.headers['cookie'])
+            	setCookie(response.headers['cookie'], response.headers['expires'])
             	return (response.data)
             })
 		);
