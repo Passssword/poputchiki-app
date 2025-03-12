@@ -13,7 +13,7 @@ const instance = axios.create({
 
 export const usersAPI = {
 	getAdverts () {
-		return( instance.get( 'adverts' ,{ withCredentials: false } )
+		return( instance.get( 'adverts' ,{ withCredentials: false, headers: {'session': document.cookie} } )
             .then(response => {
             	setCookie(response.headers['cookie'], response.headers['expires'])
             	return (response.data)
@@ -21,37 +21,56 @@ export const usersAPI = {
 		);
 	},
 	getLocations () {
-		return( instance.get( 'admin' ,{ withCredentials: false } )
-            .then(response => { return (response.data) })
+		return( instance.get( 'admin' ,{ withCredentials: false, headers: {'session': document.cookie} } )
+            .then(response => { 
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return (response.data)
+			 })
 		);
 	},
 	getUsers () {
-		return( instance.get( 'admin/getUsers' ,{ withCredentials: false } )
-            .then(response => { return (response.data) })
+		return( instance.get( 'admin/getUsers' ,{ withCredentials: false, headers: {'session': document.cookie} } )
+            .then(response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return (response.data)
+			 })
 		);
 	},
     postLocation (location) {
-		return(instance.post('admin', location, { withCredentials: false } )
-            .then( response => { return(response.data); } )
+		return(instance.post('admin', location, { withCredentials: false, headers: {'session': document.cookie} } )
+            .then( response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return(response.data)
+			} )
 			);
 	},
 	postAdvert (data) {
-		return(instance.post('adverts', data, { withCredentials: false } )
-            .then( response => { return(response.data); } )
+		return(instance.post('adverts', data, { withCredentials: false, headers: {'session': document.cookie} } )
+            .then( response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return(response.data)
+			} )
 			);
 	},
 	deleteLocation (locationId) {
-		return( instance.delete('towns/'+locationId, { withCredentials: false })
+		return( instance.delete('towns/'+locationId, { withCredentials: false, headers: {'session': document.cookie} })
             // .then( response => { return(response.data); } )
 			);
 	},
 	postUser (data) {
 		return( instance.post('admin/addUser',
 			data,
-			{ withCredentials: false, headers: {'user-object': btoa(JSON.stringify(data))} }).then( response => { 
+			{
+				withCredentials: false,
+				headers: {
+					'user-object': btoa(JSON.stringify(data)),
+					'session': document.cookie
+				}
+			}).then( response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
 				return(response.data); } )
 			)},
 	deleteUser (userId) {
-		return ( instance.delete('users/'+userId, { withCredentials: false })
+		return ( instance.delete('users/'+userId, { withCredentials: false, headers: {'session': document.cookie} })
 	)}
 }
