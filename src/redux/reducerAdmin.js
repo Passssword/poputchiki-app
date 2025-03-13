@@ -86,4 +86,9 @@ export const addUserThunkCreator = (userDataObject) => {
             } )
     }
 };
+
+export const AuthorizationThuncCreator = () => {
+    return (dispatch) => {}
+}
+
 export default reducerAdmin;

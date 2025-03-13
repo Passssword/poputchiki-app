@@ -5,8 +5,7 @@ const instance = axios.create({
 	withCredentials: true,
     headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        'Access-Control-Allow-Origin': '*',
-		'session': document.cookie
+        'Access-Control-Allow-Origin': '*'
       },
 	baseURL: 'http://localhost:34587/'
 })
@@ -72,5 +71,17 @@ export const usersAPI = {
 			)},
 	deleteUser (userId) {
 		return ( instance.delete('users/'+userId, { withCredentials: false, headers: {'session': document.cookie} })
-	)}
+	)},
+	authFunc (authData) {
+		return( instance.get('/api/1.0/auth',
+			{
+				withCredentials: true,
+				headers: {
+					'user-object': btoa(JSON.stringify(authData)),
+					'session': document.cookie
+				}
+			}).then( response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return(response.data); } )
+			)},
 }
