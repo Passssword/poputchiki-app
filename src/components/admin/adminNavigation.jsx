@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import Loca from './location.svg'
 import UsersImg from './users.svg'
 import AdvertsImg from './adverts.svg'
+import SessionsImg from './sessions.png'
 
 const AdminNavigation = () => {
     return(
@@ -14,6 +15,8 @@ const AdminNavigation = () => {
             <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-adverts">Объявления</NavLink><br />
             <img className={style.LocationImg} src={UsersImg} />
             <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-users">Пользователи</NavLink><br />
+            <img className={style.LocationImg} src={SessionsImg} />
+            <NavLink className={linksStyle.linkSidebar} to="/admin-panel/manage-sessions">Сессии</NavLink><br />
         </div>
     )
 }
