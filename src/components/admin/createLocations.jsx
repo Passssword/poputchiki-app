@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './admin.module.css'
+import styleModuleWondow from './moduleWindow.module.css'
 import styleButtons from '../../style/buttons.module.css'
 import { usersAPI } from '../../api/axiosAPI.js'
 import { connect } from "react-redux";
@@ -8,16 +9,51 @@ import { renderLocationsAC, addLocationAC } from "../../redux/reducerAdmin.js";
 
 let linkStartPoint = React.createRef();
 
+const CreateModaleWindow = () => {
+    return(
+        <div className={styleModuleWondow.modal_background}>
+            <div className={styleModuleWondow.modal_wrapper}>
+                <div className={styleModuleWondow.modal_header}><h3>Редактирование данных локации</h3></div>
+                <div className={styleModuleWondow.modal_content}>
+                <p>ID: 12</p>
+                <p>Location: <input name="custtel" value={"asd"} /></p>
+                </div>
+                <div className={styleModuleWondow.modal_footer}>
+                    <button 
+                        className={`${styleButtons.btn} ${styleButtons.btnCreate}`} 
+                        onClick={ async () => {} }>
+                        Send
+                    </button>
+                    <button 
+                        className={`${styleButtons.btn} ${styleButtons.btnDelete}`} 
+                        onClick={ async () => {} }>
+                        Close
+                    </button>
+                </div>
+            
+            </div>
+        </div>
+)}
+
 function postLocations (data) {
     return data.map( elem => {
     return(<tr>
                 <td>{elem.id}</td>
                 <td>{elem.town}</td>
                 <td>
-                    <button className={styleButtons.btnDelete} onClick={ async () => {await deleteTown(elem.id)} }>DELETE</button>
+                    <button 
+                    className={`${styleButtons.btn} ${styleButtons.btnDelete}`} 
+                    onClick={ async () => {await deleteTown(elem.id)} }>
+                        DELETE
+                    </button>
+                    <button
+                    className={`${styleButtons.btn} ${styleButtons.btnUpdate}`}
+                    onClick={ async () => {} }>
+                        UPDATE
+                    </button>
                 </td>
             </tr>)
-})
+    })
 }
 function deleteTown (townId) {
         usersAPI.deleteLocation(townId)
@@ -57,7 +93,7 @@ const CreateLocations = (props) => {
                 {postLocations(props.Locations)}
             </tbody>
         </table>
-
+        {/* {CreateModaleWindow()} */}
         </div>
     </div>
 )}

@@ -3,22 +3,23 @@
 	--clrBtnLoginHover: #557faf;
 	--clrBtnLoginActive: #c7dcf5;
 	--clrBtnDelete: #CD5C5C;
-	--clrBtnDeleteHover: #E9967A;
+	--clrBtnDeleteHover: #9b0707;
+	--clrBtnDeleteActive: #E9967A;
+	--colorUpdate: #f7c139;
+	--colorUpdateHover: #d89d08;
+	--colorUpdateActive: #fff6a6;
   }
 
 
 .btn {
 	border: none;
   border-radius: 5px;
-/* 	font-family: 'Lato'; */
-/* 	font-size: inherit; */
-/* 	color: inherit; */
-/* 	background: none; */
+  margin: 0px 5px;
   font: 15px 'Quicksand', sans-serif;
   font-weight: 500;
   font-style: normal;
 	cursor: pointer;
-	padding: 10px 15px;
+	padding: 2px 10px;
 	display: inline-block;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -27,8 +28,7 @@
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-  
-  background: var(--color7);
+
 	color: var(--color6);
 }
 
@@ -42,21 +42,6 @@
 }
 
 .btnDelete {
-    border: none;
-    border-radius: 5px;
-    padding: 2px 5px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 15px;
-    cursor: pointer;
-    display: inline-block;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	outline: none;
-    -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
     background: var(--clrBtnDelete);
 	color: var(--color6);
 }
@@ -65,9 +50,13 @@
 }
 
 .btnDelete:active {
-	background: var(--color8);
+	background: var(--clrBtnDeleteActive);
 	top: 2px;
 }
+.btnUpdate {background: var(--colorUpdate);}
+.btnUpdate:hover {background: var(--colorUpdateHover);}
+.btnUpdate:active {background: var(--colorUpdateActive);}
+
 .btnLogin {
     border: none;
     border-radius: 5px;
