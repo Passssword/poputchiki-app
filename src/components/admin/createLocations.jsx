@@ -24,6 +24,9 @@ const CreateModaleWindow = (props, closeModaleWindow) => {
         }
         usersAPI.updateLocation(locationData).then( response => {
             console.log(response)
+            if ( response.status = 200 ) {
+                // Обновить список локаций
+            }
         })
     }
     return(
