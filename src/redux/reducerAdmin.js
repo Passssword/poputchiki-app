@@ -17,6 +17,12 @@ export const reRendererUsersAC = (data) => {
 export const addUserAC = (data) => {
     return { type: 'ADD-USER', data: data }
 }
+export const openModaleWindowLocationAC = (data) => {
+    return { type: 'OPEN-MODALE-LOCATION', data: data }
+}
+export const closeModaleWindowLocationAC = (data) => {
+    return { type: 'CLOSE-MODALE-LOCATION' }
+}
 
 const _renderLocations = (data) => {
     console.log("Function _renderLocations --->")
@@ -35,6 +41,11 @@ let initialState = {
         {id:4, town: "Невельск"},
         {id:5, town: "Долинск"},
     ],
+    LocationModaleWindow: {
+        id:1,
+        locationName: "Холмск",
+        isActive: false,
+    },
     Users: [
         {id:1, login: "Zara", password: "qwerty"},
         {id:2, login: "Yandoo", password: "123456"},
@@ -65,6 +76,14 @@ const reducerAdmin = (state = initialState, action) => {
             stateCopy.Users = action.users
             return stateCopy;
         case 'RERENDERER-USERS':
+            return stateCopy;
+        case 'OPEN-MODALE-LOCATION':
+            stateCopy.LocationModaleWindow.id = action.data.id;
+            stateCopy.LocationModaleWindow.locationName = action.data.town;
+            stateCopy.LocationModaleWindow.isActive = true;
+            return stateCopy;
+        case 'CLOSE-MODALE-LOCATION':
+            stateCopy.LocationModaleWindow.isActive = false;
             return stateCopy;
         default:
             return state;

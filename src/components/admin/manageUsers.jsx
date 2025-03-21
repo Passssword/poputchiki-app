@@ -17,7 +17,7 @@ function RenderUsersTable (usersArray) {
             <td>{item.login}</td>
             <td>{item.password}</td>
             <td>
-            <button className={styleButtons.btnDelete} onClick={ async () => {await deleteUser(item.id)} }>DELETE</button>
+            <button className={`${styleButtons.btn} ${styleButtons.btnDelete}`} onClick={ async () => {await deleteUser(item.id)} }>DELETE</button>
             </td>
         </tr>)
         })

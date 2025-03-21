@@ -1,24 +1,29 @@
 import React from 'react';
 import style from './admin.module.css'
-import styleModuleWondow from './moduleWindow.module.css'
+import styleModuleWindow from './moduleWindow.module.css'
 import styleButtons from '../../style/buttons.module.css'
 import { usersAPI } from '../../api/axiosAPI.js'
 import { connect } from "react-redux";
-import { renderLocationsAC, addLocationAC } from "../../redux/reducerAdmin.js";
+import {
+    renderLocationsAC,
+    addLocationAC,
+    openModaleWindowLocationAC,
+    closeModaleWindowLocationAC
+} from "../../redux/reducerAdmin.js";
 
 
 let linkStartPoint = React.createRef();
 
-const CreateModaleWindow = () => {
+const CreateModaleWindow = (props, closeModaleWindow) => {
     return(
-        <div className={styleModuleWondow.modal_background}>
-            <div className={styleModuleWondow.modal_wrapper}>
-                <div className={styleModuleWondow.modal_header}><h3>Редактирование данных локации</h3></div>
-                <div className={styleModuleWondow.modal_content}>
-                <p>ID: 12</p>
-                <p>Location: <input name="custtel" value={"asd"} /></p>
+        <div className={styleModuleWindow.modal_background}>
+            <div className={styleModuleWindow.modal_wrapper}>
+                <div className={styleModuleWindow.modal_header}><h3>Редактирование данных локации</h3></div>
+                <div className={styleModuleWindow.modal_content}>
+                <p>ID: {props.ModaleWindow.id}</p>
+                <p>Location: <input name="location" value={props.ModaleWindow.locationName} /></p>
                 </div>
-                <div className={styleModuleWondow.modal_footer}>
+                <div className={styleModuleWindow.modal_footer}>
                     <button 
                         className={`${styleButtons.btn} ${styleButtons.btnCreate}`} 
                         onClick={ async () => {} }>
@@ -26,7 +31,7 @@ const CreateModaleWindow = () => {
                     </button>
                     <button 
                         className={`${styleButtons.btn} ${styleButtons.btnDelete}`} 
-                        onClick={ async () => {} }>
+                        onClick={ async () => {closeModaleWindow()} }>
                         Close
                     </button>
                 </div>
@@ -35,8 +40,8 @@ const CreateModaleWindow = () => {
         </div>
 )}
 
-function postLocations (data) {
-    return data.map( elem => {
+function postLocations (locations, openModaleWindow) {
+    return locations.map( elem => {
     return(<tr>
                 <td>{elem.id}</td>
                 <td>{elem.town}</td>
@@ -48,7 +53,7 @@ function postLocations (data) {
                     </button>
                     <button
                     className={`${styleButtons.btn} ${styleButtons.btnUpdate}`}
-                    onClick={ async () => {} }>
+                    onClick={ async () => {openModaleWindow(elem)} }>
                         UPDATE
                     </button>
                 </td>
@@ -90,10 +95,10 @@ const CreateLocations = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {postLocations(props.Locations)}
+                {postLocations(props.Locations, props.openModaleWindow)}
             </tbody>
         </table>
-        {/* {CreateModaleWindow()} */}
+        { props.ModaleWindow.isActive ? CreateModaleWindow(props ,props.closeModaleWindow) : null }
         </div>
     </div>
 )}
@@ -110,8 +115,11 @@ class CreateLocationsAPI extends React.Component {
     }
     render() { return <CreateLocations 
                         Locations={this.props.AdminPage.Locations}
+                        ModaleWindow={this.props.AdminPage.LocationModaleWindow}
                         renderLocations={this.props.renderLocations}
                         addLocation={this.props.addLocation}
+                        openModaleWindow={this.props.openModaleWindow}
+                        closeModaleWindow={this.props.closeModaleWindow}
                          /> }
 }
 let mapStateToProps = ( state ) => {
@@ -124,7 +132,9 @@ let mapStateToProps = ( state ) => {
     return (
       {
         renderLocations: (data) => {dispatch( renderLocationsAC(data) )},
-        addLocation: (data) => {dispatch( addLocationAC(data) )}
+        addLocation: (data) => {dispatch( addLocationAC(data) )},
+        openModaleWindow: (data) => {dispatch( openModaleWindowLocationAC(data) )},
+        closeModaleWindow: () => {dispatch( closeModaleWindowLocationAC() )}
       });
   };
   const CreateLocationsContener = connect(mapStateToProps, mapDispatchToProps)(CreateLocationsAPI);
