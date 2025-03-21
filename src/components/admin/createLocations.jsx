@@ -13,20 +13,31 @@ import {
 
 
 let linkStartPoint = React.createRef();
+let linkLocationField = React.createRef();
+
 
 const CreateModaleWindow = (props, closeModaleWindow) => {
+    function updateLocation () {
+        let locationData = {
+            id: props.ModaleWindow.id,
+            locationName: linkLocationField.current.value
+        }
+        usersAPI.updateLocation(locationData).then( response => {
+            console.log(response)
+        })
+    }
     return(
         <div className={styleModuleWindow.modal_background}>
             <div className={styleModuleWindow.modal_wrapper}>
                 <div className={styleModuleWindow.modal_header}><h3>Редактирование данных локации</h3></div>
                 <div className={styleModuleWindow.modal_content}>
                 <p>ID: {props.ModaleWindow.id}</p>
-                <p>Location: <input name="location" value={props.ModaleWindow.locationName} /></p>
+                <p>Location: <input ref={linkLocationField} type="text" defaultValue={props.ModaleWindow.locationName} /></p>
                 </div>
                 <div className={styleModuleWindow.modal_footer}>
                     <button 
                         className={`${styleButtons.btn} ${styleButtons.btnCreate}`} 
-                        onClick={ async () => {} }>
+                        onClick={ async () => {updateLocation()} }>
                         Send
                     </button>
                     <button 

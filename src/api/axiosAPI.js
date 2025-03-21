@@ -43,6 +43,14 @@ export const usersAPI = {
 			} )
 			);
 	},
+	updateLocation (locationData) {
+		return(instance.put('/locations/'+locationData.id, locationData, { withCredentials: true, headers: {'session': document.cookie} } )
+            .then( response => {
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return(response.data)
+			} )
+			);
+	},
 	postAdvert (data) {
 		return(instance.post('adverts', data, { withCredentials: false, headers: {'session': document.cookie} } )
             .then( response => {
