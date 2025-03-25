@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import {
     renderLocationsAC,
     addLocationAC,
+    updateLocationAC,
     openModaleWindowLocationAC,
     closeModaleWindowLocationAC
 } from "../../redux/reducerAdmin.js";
@@ -16,8 +17,8 @@ let linkStartPoint = React.createRef();
 let linkLocationField = React.createRef();
 
 
-const CreateModaleWindow = (props, closeModaleWindow) => {
-    function updateLocation () {
+const CreateModaleWindow = (props) => {
+    function updateLocationButton () {
         let locationData = {
             id: props.ModaleWindow.id,
             locationName: linkLocationField.current.value
@@ -26,6 +27,7 @@ const CreateModaleWindow = (props, closeModaleWindow) => {
             console.log(response)
             if ( response.status = 200 ) {
                 // Обновить список локаций
+                props.updateLocation(locationData)
             }
         })
     }
@@ -40,12 +42,12 @@ const CreateModaleWindow = (props, closeModaleWindow) => {
                 <div className={styleModuleWindow.modal_footer}>
                     <button 
                         className={`${styleButtons.btn} ${styleButtons.btnCreate}`} 
-                        onClick={ async () => {updateLocation()} }>
+                        onClick={ async () => {updateLocationButton()} }>
                         Send
                     </button>
                     <button 
                         className={`${styleButtons.btn} ${styleButtons.btnDelete}`} 
-                        onClick={ async () => {closeModaleWindow()} }>
+                        onClick={ async () => {props.closeModaleWindow()} }>
                         Close
                     </button>
                 </div>
@@ -112,7 +114,7 @@ const CreateLocations = (props) => {
                 {postLocations(props.Locations, props.openModaleWindow)}
             </tbody>
         </table>
-        { props.ModaleWindow.isActive ? CreateModaleWindow(props ,props.closeModaleWindow) : null }
+        { props.ModaleWindow.isActive ? CreateModaleWindow(props) : null }
         </div>
     </div>
 )}
@@ -134,6 +136,7 @@ class CreateLocationsAPI extends React.Component {
                         addLocation={this.props.addLocation}
                         openModaleWindow={this.props.openModaleWindow}
                         closeModaleWindow={this.props.closeModaleWindow}
+                        updateLocation={this.props.updateLocation}
                          /> }
 }
 let mapStateToProps = ( state ) => {
@@ -146,9 +149,10 @@ let mapStateToProps = ( state ) => {
     return (
       {
         renderLocations: (data) => {dispatch( renderLocationsAC(data) )},
-        addLocation: (data) => {dispatch( addLocationAC(data) )},
+        addLocation: (data) => {dispatch( addLocationAC(data) )},//updateLocationAC
         openModaleWindow: (data) => {dispatch( openModaleWindowLocationAC(data) )},
-        closeModaleWindow: () => {dispatch( closeModaleWindowLocationAC() )}
+        closeModaleWindow: () => {dispatch( closeModaleWindowLocationAC() )},
+        updateLocation: (data) => {dispatch( updateLocationAC(data) )}
       });
   };
   const CreateLocationsContener = connect(mapStateToProps, mapDispatchToProps)(CreateLocationsAPI);

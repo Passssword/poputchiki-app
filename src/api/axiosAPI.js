@@ -20,7 +20,7 @@ export const usersAPI = {
 		);
 	},
 	getLocations () {
-		return( instance.get( 'admin' ,{ withCredentials: false, headers: {'session': document.cookie} } )
+		return( instance.get( 'admin' ,{ withCredentials: true, headers: {'session': document.cookie} } )
             .then(response => { 
 				setCookie(response.headers['cookie'], response.headers['expires'])
 				return (response.data)

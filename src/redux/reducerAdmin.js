@@ -8,6 +8,9 @@ export const renderLocationsAC = (data) => {
 export const addLocationAC = (data) => {
     return { type: 'ADD-LOCATION', location: data }
 }
+export const updateLocationAC = (location) => {
+    return { type: 'UPDATE-LOCATION', location }
+}
 export const renderUsersAC = (data) => {
     return { type: 'RENDER-USERS', users: data }
 }
@@ -24,8 +27,13 @@ export const closeModaleWindowLocationAC = (data) => {
     return { type: 'CLOSE-MODALE-LOCATION' }
 }
 
-const _renderLocations = (data) => {
+
+
+const _renderLocations = async (data) => {
     console.log("Function _renderLocations --->")
+    // usersAPI.getLocations()
+    //         .then( data => { return data } )
+    //         .catch(err => console.log(`Error: ${err}`))
     console.log(data)
 }
 const _addUserToTable = (state, newUser) => {
@@ -63,11 +71,17 @@ const reducerAdmin = (state = initialState, action) => {
     switch (action.type) {
         case 'RENDER-LOCATIONS':
             stateCopy.Locations = action.locations;
-            _renderLocations (action.locations)
+            // _renderLocations (action.locations)
+            // stateCopy.Locations = _renderLocations()
             return stateCopy;
         case 'ADD-LOCATION':
             stateCopy.Locations.push(action.location)
             // _addLocation(action.location, stateCopy)
+            return stateCopy;
+        case 'UPDATE-LOCATION':
+            let indexLocation = stateCopy.Locations.findIndex(location => location.id == action.location.id);
+            stateCopy.Locations[indexLocation].town = action.location.locationName;
+            stateCopy.LocationModaleWindow.isActive = false;
             return stateCopy;
         case 'ADD-USER':
             stateCopy.Users = [...state.Users]
