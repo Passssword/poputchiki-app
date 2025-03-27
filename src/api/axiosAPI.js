@@ -92,4 +92,12 @@ export const usersAPI = {
 				setCookie(response.headers['cookie'], response.headers['expires'])
 				return(response.data); } )
 			)},
+	getMeData () {
+		return( instance.get( '/api/1.0/auth/getUserData' ,{ withCredentials: true, headers: {'session': document.cookie} } )
+			.then(response => { 
+				setCookie(response.headers['cookie'], response.headers['expires'])
+				return (response.data)
+				})
+		);
+	},
 }
