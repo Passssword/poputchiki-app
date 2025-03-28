@@ -2,12 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { thunk } from 'redux-thunk'
 import reducerAdmin from './reducerAdmin.js';
+import reducerAuth from './reducerAuth.js';
 import reducerGeneralSearch from './reducerGeneralSearch.js'
 import reducerLocations from './reducerLocations.js'
 import reducerSearchResults from './reducerSearchResults.js'
 
 let reducers = combineReducers({
 	adminState: reducerAdmin,
+	authState: reducerAuth,
 	generalSearchState: reducerGeneralSearch,
 	locationsState: reducerLocations,
 	searchResultsState: reducerSearchResults,
