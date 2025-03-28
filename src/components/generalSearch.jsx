@@ -27,7 +27,7 @@ function SearchWrapper (props) {
                 </div>
             
                 <div className={style.test}>
-                <button className={styleButtons.btn}>Search</button>
+                <button className={`${styleButtons.btn} ${styleButtons.btnSearch}`}>Search</button>
                 </div>
             </div>
     )
