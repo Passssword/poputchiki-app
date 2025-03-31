@@ -96,7 +96,6 @@ const CreateLocations = (props) => {
     <div>
         <div className={style.adminCreateLocationFieldWrapper}>
             <input ref={linkStartPoint} type="text" placeholder="Название населенного пункта"/>
-            {/* <input onClick={fieldsAgrigation} type='button' value={'Добавить'}/> */}
             <button onClick={fieldsAgrigation} className={`${styleButtons.btn} ${styleButtons.btnCreate}`}>Добавить</button>
         </div>
 

@@ -14,7 +14,7 @@ function Content () {
     return(
     <div className={style.content_wrapper}>
         <Routes>
-            <Route path="/search-results" element={<SearchResultsPage />} />
+            <Route path="/adverts" element={<SearchResultsPage />} />
             <Route path="/create-advert" element={<CreateAdvertPage />} />
             <Route path="/admin-panel/*" element={<AdminPanel />}>
                 <Route path="manage-locations" element={<CreateLocations />} />
