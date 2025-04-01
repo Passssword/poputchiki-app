@@ -36,4 +36,10 @@
   .search_results_table tr:hover td {
     background: #e8edff;
     color: #6699ff;
+    cursor: pointer;
+  }
+  .search_results_table tr:active td {
+    background: #e2c1c1;
+    color: #ffffff;
+    cursor: progress;
   }

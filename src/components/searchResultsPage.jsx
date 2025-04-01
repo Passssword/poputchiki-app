@@ -1,13 +1,23 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import style from './searchResultsPage.module.css'
 import { usersAPI } from '../api/axiosAPI.js'
 import { connect } from "react-redux";
 import { renderAdvertsAC } from "../redux/reducerSearchResults.js";
 
+function changeAddressBar (id) {
+  // Метод замены адресной строки, он не работает, так как рендер
+  //  не срабатывает на изменение адреса таким образом
+  
+  const routeString = `adverts/${id}`
+  // window.history.pushState(null, null, routeString);
+  // document.location = 'adverts/'+id
+  console.log(id)
+}
 function fillAdvertsFields (data) {
   return data.map( elem => {
     return (
-      <tr>
+      <tr onClick={ () => {changeAddressBar(elem.id)} }>
         <td>{elem.startPoint}</td>
         <td>{elem.endPoint}</td>
         <td>{elem.dateCreate}</td>
