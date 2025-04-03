@@ -1,13 +1,16 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
 import style from './advertPage.module.css'
 import { usersAPI } from '../../api/axiosAPI.js'
 import { connect } from "react-redux";
 // import { renderLocationsAC } from "../redux/reducerLocations.js";
 
 function AdvertPage (props) {
+    const params = useParams();
     return (
     <div className={style.advertPage_wrapper}>
         <h3>AdvertPage</h3> <br /><br />
+        ID: {params.advertId}<br />
         Точка начала<br />
         Точка окончания<br />
         Дата события<br />
@@ -20,7 +23,7 @@ function AdvertPage (props) {
 ) }
 
 class AdvertPageAPI extends React.Component {
-    componentDidMount () {console.log(this.props)}
+    componentDidMount () {}
     render () { return( 
         <AdvertPage
             {...this.props}
