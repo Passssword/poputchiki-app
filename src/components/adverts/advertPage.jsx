@@ -10,8 +10,8 @@ function AdvertPage (props) {
     <div className={style.advertPage_wrapper}>
         <h3>AdvertPage</h3> <br /><br />
         ID: {props.params.advertId}<br />
-        Точка начала<br />
-        Точка окончания<br />
+        Место отправления<br />
+        Место назначения<br />
         Дата события<br />
         Коментарий<br />
         Авто<br />
