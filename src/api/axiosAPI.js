@@ -19,6 +19,9 @@ export const usersAPI = {
             })
 		);
 	},
+	getAdvertData (advertID) { return( instance.get( 'adverts/'+advertID , { withCredentials: false, } )
+		.then( async (response) => { return (response.data) }) );
+	},
 	getLocations () {
 		return( instance.get( 'admin' ,{ withCredentials: true, headers: {'session': document.cookie} } )
             .then(response => { 

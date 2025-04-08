@@ -68,6 +68,9 @@ function AdvertPage (props) {
 class AdvertPageAPI extends React.Component {
     componentDidMount () {
         console.log("advertId: "+this.props.params.advertId)
+
+        usersAPI.getAdvertData(this.props.params.advertId)
+        .then(response => { console.log(response) }).catch(err => console.log(`Error: ${err}`))
     }
     render () { return( 
         <AdvertPage
