@@ -3,7 +3,7 @@ import withRouter from './withRouter.jsx';
 import style from './advertPage.module.css'
 import { usersAPI } from '../../api/axiosAPI.js'
 import { connect } from "react-redux";
-// import { renderLocationsAC } from "../redux/reducerLocations.js";
+import { setAdvertDataAC } from "../../redux/reducerSearchResults.js";
 
 function AdvertPage (props) {
     return (
@@ -16,31 +16,27 @@ function AdvertPage (props) {
             <div className={style.advertPage_locatios_wrapper}>
                 <div className={style.advertPage_location}>
                 <p>From</p>
-                <p>Dolinsk</p>
+                <p>{props.AdvertPageState.startPoint}</p>
                 <p>Street 13th</p>
                 </div>
                 <img src="https://i.postimg.cc/k4dFgNv8/1492616980-2-google-maps-gps-navigation-traffice-direction-83420.png" />
                 <div className={style.advertPage_location}>
                 <p>To</p>
-                <p>Yushno-Sakhalinsk</p>
+                <p>{props.AdvertPageState.endPoint}</p>
                 <p>Street 13th</p>
                 </div>
             </div>
             
             <div className={style.advertPage_info_wrapper}>
-                <div className={style.advertPage_price}><p>Price:</p><p>1300</p></div>
-                <div className={style.advertPage_date}><p>Date:</p><p>05.05.2025</p></div>
-                <div className={style.advertPage_time}><p>Time:</p><p>17:15</p></div>
+                <div className={style.advertPage_price}><p>Price:</p><p>---- руб.</p></div>
+                <div className={style.advertPage_date}><p>Date:</p><p>--.--.----</p></div>
+                <div className={style.advertPage_time}><p>Time:</p><p>--:--</p></div>
             </div>
 
             <hr />
             <div className={style.advertPage_comment_wrapper}>
                 <div>Коментарий</div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                     irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                     pariatur.</div>
+                <div>{props.AdvertPageState.comment}</div>
             </div>
             
             <hr />
@@ -53,7 +49,7 @@ function AdvertPage (props) {
                 <img alt="Беру посылки" src="https://i.postimg.cc/g2L47S2q/Delivery-Icon.webp" />
             </div>
             
-            <div className={style.advertPage_date_wrapper}><p>Дата создания объявления:  03.03.2025</p></div>
+            <div className={style.advertPage_date_wrapper}><p>Дата создания объявления:  {props.AdvertPageState.dateCreate}</p></div>
         </div>
 
         <div className={`${style.advertPage_author} ${style.contaner}`}>
@@ -70,21 +66,26 @@ class AdvertPageAPI extends React.Component {
         console.log("advertId: "+this.props.params.advertId)
 
         usersAPI.getAdvertData(this.props.params.advertId)
-        .then(response => { console.log(response) }).catch(err => console.log(`Error: ${err}`))
+        .then(response => {
+            this.props.setAdvertData(response.data)
+        }).catch(err => console.log(`Error: ${err}`))
     }
     render () { return( 
         <AdvertPage
             {...this.props}
+            AdvertPageState={this.props.AdvertPageState}
         />
     )}
 }
 
 let mapStateToProps = ( state ) => {
-    return ({});
+    return ({ AdvertPageState: state.searchResultsState.AdvertPage});
   };
-  let mapDispatchToProps = ( dispatch ) => {
-    return ({});
-  };
+let mapDispatchToProps = ( dispatch ) => {
+return ({
+    setAdvertData: (data) => { dispatch( setAdvertDataAC(data) ) }
+});
+};
 
 const witchRouterAdvertPageContaner = withRouter(AdvertPageAPI)
 const AdvertPageContener = connect(mapStateToProps, mapDispatchToProps)(witchRouterAdvertPageContaner);
