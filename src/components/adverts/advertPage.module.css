@@ -84,6 +84,28 @@
 }
 
 
-.advertPage_author {
+.advertPage_profile_wrapper {
     grid-column: 7/11;
   }
+.advertPage_profileAuthor_wrapper {
+    display: flex;
+    border-radius: 10px;
+    padding: 50px 0px;
+    /* background: var(--color4); */
+}
+.advertPage_profile_LogoWrapper {
+    padding: 5px 5px 0px 5px;
+    border-radius: 50%;
+    border: 2px solid var(--color3);
+}
+.advertPage_profile_LogoImg {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.advertPage_profileNickname_wrapper {display: flex; flex-direction: column; justify-content: center;}
+.advertPage_profileNickname_wrapper p:nth-child(1) { /* Nick Name */ font-size: 20px; font-weight: 700; }
+.advertPage_profileNickname_wrapper p:nth-child(2) { /* User status */ font-size: 16px; color: var(--color1);}
+
+.advertPage_auto_wrapper {background: var(--color4);}

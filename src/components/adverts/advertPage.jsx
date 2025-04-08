@@ -52,10 +52,20 @@ function AdvertPage (props) {
             <div className={style.advertPage_date_wrapper}><p>Дата создания объявления:  {props.AdvertPageState.dateCreate}</p></div>
         </div>
 
-        <div className={`${style.advertPage_author} ${style.contaner}`}>
-            Автор объявления<br />
-            Авто<br />
-            Дата создания объекта объявления
+        <div className={`${style.advertPage_profile_wrapper} ${style.contaner}`}>
+            <div className={style.advertPage_profileAuthor_wrapper}>
+                <div className={style.advertPage_profile_LogoWrapper}>
+                    <img className={style.advertPage_profile_LogoImg} src="https://i120.fastpic.org/big/2022/0909/21/d11c70c9fcadb9cc49731ad350e46f21.jpg" />
+                </div>
+                <div className={style.advertPage_profileNickname_wrapper}>
+                    <p>NickName</p>
+                    <p>user status...</p>
+                </div>
+                
+            </div>
+            <div className={style.advertPage_auto_wrapper}>
+                Auto: {props.AdvertPageState.auto}
+            </div>
         </div>
 
     </div>
