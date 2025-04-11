@@ -59,10 +59,9 @@ const ManageUsers = (props) => {
                         <th>Password</th>
                         <th>Usage buttons</th>
                         </tr>
-                        {RenderUsersTable(props.UsersState)}
                     </thead>
                     <tbody>
-                        
+                        {RenderUsersTable(props.UsersState)}
                     </tbody>
                 </table>
             </div>
