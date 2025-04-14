@@ -26,6 +26,9 @@ export const openModaleWindowLocationAC = (data) => {
 export const closeModaleWindowLocationAC = (data) => {
     return { type: 'CLOSE-MODALE-LOCATION' }
 }
+export const renderSessionsAC = (data) => {
+    return { type: 'RENDER-SESSIONS', SessionsData: data }
+}
 
 
 
@@ -61,7 +64,8 @@ let initialState = {
         {id:4, login: "Ivan", password: "looidfuy"},
         {id:5, login: "hiroku", password: "zxd6"},
         {id:6, login: "Demon666", password: "1234567890"},
-    ]
+    ],
+    SessionsData: []
 }
 
 const reducerAdmin = (state = initialState, action) => {
@@ -98,6 +102,9 @@ const reducerAdmin = (state = initialState, action) => {
             return stateCopy;
         case 'CLOSE-MODALE-LOCATION':
             stateCopy.LocationModaleWindow.isActive = false;
+            return stateCopy;
+        case 'RENDER-SESSIONS':
+            stateCopy.SessionsData = action.SessionsData;
             return stateCopy;
         default:
             return state;
