@@ -9,6 +9,7 @@ import AuthorizationPage from './auth/AuthorizationPage.jsx';
 import CreateLocations from './admin/createLocations.jsx';
 import ManageAdverts from './admin/manageAdverts.jsx';
 import ManageUsers from './admin/manageUsers.jsx';
+import ManageSessions from './admin/manageSessions.jsx';
 
 function Content () {
     
@@ -22,6 +23,7 @@ function Content () {
                 <Route path="manage-locations" element={<CreateLocations />} />
                 <Route path="manage-adverts" element={<ManageAdverts />} />
                 <Route path="manage-users" element={<ManageUsers />} />
+                <Route path="manage-sessions" element={<ManageSessions />} />
             </Route>
             <Route path="/style-page" element={<StylePage />} />
             <Route path="/auth" element={<AuthorizationPage />} />
