@@ -6,3 +6,65 @@
     border-radius: 5px;
     box-shadow:  0px 0px 15px 0px rgba(0, 0, 0, .10);
 }
+
+.manageSessionsTable {
+    display: inline-block;
+    vertical-align: top;
+    
+    overflow-x: auto;
+    
+    white-space: nowrap;
+  
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .manageSessionsTable tbody {
+    /* optional - enable iOS momentum scrolling */
+    -webkit-overflow-scrolling: touch;
+    
+    /* scrolling shadows */
+    background: radial-gradient(left, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+                radial-gradient(right, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+    background-size: 10px 100%, 10px 100%;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+  }
+  /* gradient on the last cells to hide the right shadow */
+  .manageSessionsTable td:last-child {
+    /* background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%; */
+  }
+  
+  .manageSessionsTable th {
+    font-size: 11px;
+    text-align: left;
+    text-transform: uppercase;
+    background: var(--color2);
+  }
+  
+  .manageSessionsTable th,
+  .manageSessionsTable td {
+    padding: 6px 12px;
+    border: 1px solid #d9d7ce;
+  }
+  .manageSessionsTable .session_key {
+    display: block;
+    max-width: 200px;
+    overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    border-width: 0px;
+  }
+  .manageSessionsTable .session_date {
+    display: block;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-width: 0px;
+}
+  .manageSessionsTable td {
+    background: var(--color4);
+  }

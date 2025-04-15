@@ -29,16 +29,14 @@ export const closeModaleWindowLocationAC = (data) => {
 export const renderSessionsAC = (data) => {
     return { type: 'RENDER-SESSIONS', SessionsData: data }
 }
-
-
-
-const _renderLocations = async (data) => {
-    console.log("Function _renderLocations --->")
-    // usersAPI.getLocations()
-    //         .then( data => { return data } )
-    //         .catch(err => console.log(`Error: ${err}`))
-    console.log(data)
+export const openModaleWindowSessionAC = (data) => {
+    return { type: 'OPEN-MODALE-SESSION', data: data }
 }
+export const closeModaleWindowSessionAC = (data) => {
+    return { type: 'CLOSE-MODALE-SESSION' }
+}
+
+
 const _addUserToTable = (state, newUser) => {
     state.Users.push(newUser)
     return state
@@ -55,6 +53,12 @@ let initialState = {
     LocationModaleWindow: {
         id:1,
         locationName: "Холмск",
+        isActive: false,
+    },
+    SessionModaleWindow: {
+        id:1,
+        sessionKey: "123456789",
+        userID: null,
         isActive: false,
     },
     Users: [
@@ -75,15 +79,13 @@ const reducerAdmin = (state = initialState, action) => {
     switch (action.type) {
         case 'RENDER-LOCATIONS':
             stateCopy.Locations = action.locations;
-            // _renderLocations (action.locations)
-            // stateCopy.Locations = _renderLocations()
             return stateCopy;
         case 'ADD-LOCATION':
             stateCopy.Locations.push(action.location)
             // _addLocation(action.location, stateCopy)
             return stateCopy;
         case 'UPDATE-LOCATION':
-            let indexLocation = stateCopy.Locations.findIndex(location => location.id == action.location.id);
+            let indexLocation = stateCopy.Locations.findIndex(location => location.id === action.location.id);
             stateCopy.Locations[indexLocation].town = action.location.locationName;
             stateCopy.LocationModaleWindow.isActive = false;
             return stateCopy;
@@ -105,6 +107,16 @@ const reducerAdmin = (state = initialState, action) => {
             return stateCopy;
         case 'RENDER-SESSIONS':
             stateCopy.SessionsData = action.SessionsData;
+            return stateCopy;
+        case 'OPEN-MODALE-SESSION':
+            console.log(action.data)
+            stateCopy.SessionModaleWindow.id = action.data.id;
+            stateCopy.SessionModaleWindow.sessionKey = action.data.session_key;
+            stateCopy.SessionModaleWindow.userID = action.data.user_id;
+            stateCopy.SessionModaleWindow.isActive = true;
+            return stateCopy;
+        case 'CLOSE-MODALE-SESSION':
+            stateCopy.SessionModaleWindow.isActive = false;
             return stateCopy;
         default:
             return state;
